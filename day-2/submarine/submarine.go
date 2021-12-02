@@ -11,6 +11,7 @@ import (
 type Submarine struct {
 	HorizontalPosition int
 	Depth              int
+	Aim                int
 }
 
 type Instruction struct {
@@ -47,12 +48,13 @@ func ReadInstructionFile(filePath string) ([]Instruction, error) {
 
 func (s *Submarine) MoveForward(gridCount int) {
 	s.HorizontalPosition += gridCount
+	s.Depth += s.Aim * gridCount
 }
 
 func (s *Submarine) Dive(gridCount int) {
-	s.Depth += gridCount
+	s.Aim += gridCount
 }
 
 func (s *Submarine) Rise(gridCount int) {
-	s.Depth -= gridCount
+	s.Aim -= gridCount
 }

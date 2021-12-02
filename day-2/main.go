@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	s := submarine.Submarine{HorizontalPosition: 0, Depth: 0}
+	s := submarine.Submarine{HorizontalPosition: 0, Depth: 0, Aim: 0}
 	instructionList, err := submarine.ReadInstructionFile("./input.txt")
 	if err != nil {
 		log.Fatal(err)
